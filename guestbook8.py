@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 db = SQLAlchemy(app)
 
 class Comments(db.Model):
-    __tablename__ = 'Aomme'
+    __tablename__ = 'comments'
     id = Column(Integer, primary_key = True)
     name = Column(String)
     comment = Column(String)
