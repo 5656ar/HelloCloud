@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Date, CHAR, VARCHAR
-from sqlalchemy.ext.declarative import declarative_base
+
 
 
 app = Flask(__name__)
@@ -16,8 +16,6 @@ class Student(db.Model):
     f_name = Column(VARCHAR(30), nullable=False)
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
-
-
 
   
 @app.route('/')
