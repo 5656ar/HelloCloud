@@ -25,15 +25,12 @@ class Student(db.Model):
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
 
-
-    
-
 @app.route('/')
 def index():
     result1 = Student.query.all()
     result = Registrations.query.all()
-    result += result1
-    return render_template('index8.html', result=result)
+    # result += result1
+    return render_template('index8.html', result1=result1)
 
 @app.route('/sign')
 def sign():
