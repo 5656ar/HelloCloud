@@ -11,11 +11,9 @@ db = SQLAlchemy(app)
 class Comments(db.Model):
     __tablename__ = 'Registration'
     id = Column(Integer, primary_key=True)
-    student_id = Column(CHAR(13), nullable=False)
-    subject_id = Column(VARCHAR(15), nullable=False)
-    year = Column(CHAR(4), nullable=False)
-    semester = Column(CHAR(1), nullable=False)
-    grade = Column(CHAR(2))
+    name = Column(String)
+    comment = Column(String)
+    
 
 @app.route('/')
 def index():
