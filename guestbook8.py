@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 @app.route('/')
 def index():
     result = Registration_table.query.all()
-    return render_template('index7.html', result=result)
+    return render_template('index8.html', result=result)
 
 @app.route('/sign')
 def sign():
