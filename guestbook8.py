@@ -21,7 +21,7 @@ class Comments(db.Model):
 @app.route('/')
 def index():
     # result_add = 
-    result = Registration_table.query.all()
+    result = Comments.query.all()
     return render_template('index8.html', result=result)
 
 @app.route('/sign')
