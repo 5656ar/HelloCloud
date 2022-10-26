@@ -17,20 +17,14 @@ class Student(db2.Model):
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
 
-class Subjects(db.Model):
-    __tablename__ = "Subject"
-    subject_id = Column(VARCHAR(15), primary_key=True, nullable=False)
-    subject_name = Column(VARCHAR(50), nullable=False)
-    cradit = Column(Integer, nullable=False)
-    teacher_id = Column(CHAR(3))
+
 
   
 @app.route('/')
 def index():
-    result1 = Subjects.query.all()
     result = Student.query.all()
     # result += result1
-    return render_template('index8.html', result1=result1)
+    return render_template('index8.html', result=result)
 
 @app.route('/sign')
 def sign():
