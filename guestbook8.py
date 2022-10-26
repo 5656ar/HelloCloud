@@ -15,24 +15,15 @@ class Student(db.Model):
     f_name = Column(VARCHAR(30), nullable=False)
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
-
-class Registrations(db.Model):
-    __tablename__ = 'Registration'
-    id = Column(Integer, primary_key=True)
-    student_id = Column(CHAR(13), nullable=False)
     subject_id = Column(VARCHAR(15), nullable=False)
-    year = Column(CHAR(4), nullable=False)
-    semester = Column(CHAR(1), nullable=False)
-    grade = Column(CHAR(2))
+
+
+
     
-
-
-
-
 @app.route('/')
 def index():
 
-    result = Registrations.query.all()
+    result = Student.query.all()
     # result += result1
     return render_template('index8.html', result=result)
 
