@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 db = SQLAlchemy(app)
 
-class Comments(db.Model):
+class Registrations(db.Model):
     __tablename__ = 'Registration'
     id = Column(Integer, primary_key=True)
     student_id = Column(CHAR(13), nullable=False)
@@ -17,25 +17,20 @@ class Comments(db.Model):
     year = Column(CHAR(4), nullable=False)
     semester = Column(CHAR(1), nullable=False)
     grade = Column(CHAR(2))
+
+
     
 
 @app.route('/')
 def index():
-    result = Comments.query.all()
+    result = Registrations.query.all()
     return render_template('index8.html', result=result)
 
 @app.route('/sign')
 def sign():
     return render_template('sign7.html')
 
-@app.route('/process', methods=['POST'])
-def process():
-    name = request.form['name']
-    comment = request.form['comment']
-    signature = Comments(name=name, comment=comment)
-    db.session.add(signature)
-    db.session.commit()
-    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0',port= 80,debug=True)
