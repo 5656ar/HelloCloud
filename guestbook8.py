@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 db = SQLAlchemy(app)
 
-class Comments():
+class Comments(db.Model):
     __tablename__ = 'Registration'
     id = Column(Integer, primary_key=True)
     student_id = Column(CHAR(13), nullable=False)
