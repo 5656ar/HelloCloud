@@ -9,8 +9,8 @@ app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:MDDnfo15110@10.104.
 app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 db = SQLAlchemy(app)
-db2 = SQLAlchemy(app)
-class Student(db2.Model):
+
+class Student(db.Model):
     __tablename__ = 'Students'
     student_id = Column(CHAR(13),primary_key=True, nullable=False)
     f_name = Column(VARCHAR(30), nullable=False)
