@@ -18,12 +18,21 @@ class Registrations(db.Model):
     semester = Column(CHAR(1), nullable=False)
     grade = Column(CHAR(2))
 
+class Student(db.Model):
+    __tablename__ = 'Students'
+    student_id = Column(CHAR(13),primary_key=True, nullable=False)
+    f_name = Column(VARCHAR(30), nullable=False)
+    l_name = Column(VARCHAR(30), nullable=False)
+    e_mail = Column(VARCHAR(50),nullable=False)
+
 
     
 
 @app.route('/')
 def index():
+    result1 = Student.query.all()
     result = Registrations.query.all()
+    result += result1
     return render_template('index8.html', result=result)
 
 @app.route('/sign')
