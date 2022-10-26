@@ -13,7 +13,6 @@ class Comments(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     comment = Column(String)
-    
 
 @app.route('/')
 def index():
