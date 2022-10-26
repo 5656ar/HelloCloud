@@ -1,17 +1,29 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Date, CHAR, VARCHAR
-from test_ex_1 import Students_table
+
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:MDDnfo15110@10.104.7.84:5432/testdb'
 app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 db = SQLAlchemy(app)
 
+class Student(db):
+    __tablename__ = 'Students'
+    student_id = Column(CHAR(13),primary_key=True, nullable=False)
+    f_name = Column(VARCHAR(30), nullable=False)
+    l_name = Column(VARCHAR(30), nullable=False)
+    e_mail = Column(VARCHAR(50),nullable=False)
 
+
+
+  
 @app.route('/')
 def index():
-    result = Students_table.query.all()
+
+    result = Student.query.all()
+    # result += result1
     return render_template('index8.html', result=result)
 
 @app.route('/sign')
