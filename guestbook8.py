@@ -10,14 +10,14 @@ app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 db = SQLAlchemy(app)
 db2 = SQLAlchemy(app)
-class Student(db.Model):
+class Student(db2.Model):
     __tablename__ = 'Students'
     student_id = Column(CHAR(13),primary_key=True, nullable=False)
     f_name = Column(VARCHAR(30), nullable=False)
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
 
-class Subjects(db2.Model):
+class Subjects(db.Model):
     __tablename__ = "Subject"
     subject_id = Column(VARCHAR(15), primary_key=True, nullable=False)
     subject_name = Column(VARCHAR(50), nullable=False)
