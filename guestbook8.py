@@ -15,11 +15,8 @@ class Student(db.Model):
     f_name = Column(VARCHAR(30), nullable=False)
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
-    subject_id = Column(VARCHAR(15), nullable=False)
 
-
-
-    
+  
 @app.route('/')
 def index():
 
