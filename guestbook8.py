@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from test_ex_1 import Registration_table
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:BQEhbz67958@10.104.9.222:5432/testdb'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:BQEhbz67958@node37003-bunnapon.proen.app.ruk-com.cloud:11260/testdb'
 app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 db = SQLAlchemy(app)
