@@ -3,16 +3,17 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import CHAR, VARCHAR, Column, Integer, ForeignKey
 from sqlalchemy.orm import sessionmaker
 
-engine = sqlalchemy.create_engine('sqlite:///test_02.sqlite3')
+engine = sqlalchemy.create_engine('postgresql://webadmin:BQEhbz67958@node37003-bunnapon.proen.app.ruk-com.cloud:11260/testdb')
 Base = declarative_base()
 
 class Registration_table(Base):
-    __tablename__ = "Registration"
-    student_id = Column(CHAR(13),ForeignKey('Students.student_id'), nullable=False)
-    subject_id = Column(VARCHAR(15), ForeignKey('Subject.subject_id'), nullable=False)
+    __tablename__ = 'Registration'
+    id = Column(Integer, primary_key=True)
+    student_id = Column(CHAR(13), nullable=False)
+    subject_id = Column(VARCHAR(15), nullable=False)
     year = Column(CHAR(4), nullable=False)
     semester = Column(CHAR(1), nullable=False)
-    grade = Column(CHAR(2), primary_key=True)
+    grade = Column(CHAR(2))
     
 
 class Subject_table(Base):
