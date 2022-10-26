@@ -17,17 +17,12 @@ class Student(db2.Model):
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
 
-class Subjects(db.Model):
-    __tablename__ = "Subject"
-    subject_id = Column(VARCHAR(15), primary_key=True, nullable=False)
-    subject_name = Column(VARCHAR(50), nullable=False)
-    cradit = Column(Integer, nullable=False)
-    teacher_id = Column(CHAR(3))
+
 
   
 @app.route('/')
 def index():
-    result = Subjects.query.all()
+
     result1 = Student.query.all()
     # result += result1
     return render_template('index8.html', result1=result1)
