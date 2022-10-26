@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 db = SQLAlchemy(app)
 
-class Student(db):
+class Student(db.Model):
     __tablename__ = 'Students'
     student_id = Column(CHAR(13),primary_key=True, nullable=False)
     f_name = Column(VARCHAR(30), nullable=False)
