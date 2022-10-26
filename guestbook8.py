@@ -10,27 +10,19 @@ app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 db = SQLAlchemy(app)
 
 class Registrations(db.Model):
-    __tablename__ = 'Registration'
-    id = Column(Integer, primary_key=True)
-    student_id = Column(CHAR(13), nullable=False)
-    subject_id = Column(VARCHAR(15), nullable=False)
-    year = Column(CHAR(4), nullable=False)
-    semester = Column(CHAR(1), nullable=False)
-    grade = Column(CHAR(2))
-
-class Student(db.Model):
     __tablename__ = 'Students'
     student_id = Column(CHAR(13),primary_key=True, nullable=False)
     f_name = Column(VARCHAR(30), nullable=False)
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
 
+
 @app.route('/')
 def index():
-    result1 = Student.query.all()
+
     result = Registrations.query.all()
     # result += result1
-    return render_template('index8.html', result1=result1)
+    return render_template('index8.html', result=result)
 
 @app.route('/sign')
 def sign():
