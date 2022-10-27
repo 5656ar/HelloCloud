@@ -1,10 +1,13 @@
+from sqlalchemy import create_engine
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import CHAR, VARCHAR, Column, Integer, ForeignKey
 from sqlalchemy.orm import sessionmaker
 
-engine = sqlalchemy.create_engine('sqlite:///HW1.sqlite3')
+engine = sqlalchemy.create_engine('postgresql://webadmin:MDDnfo15110@node38352-bunnapon.proen.app.ruk-com.cloud:11234/testdb')
 Base = declarative_base()
+db_uri = 'sqlite:///HW1.sqlite3'
+engine1 = create_engine(db_uri, echo=False)
 
 class Registration_table(Base):
     __tablename__ = 'Registration'
@@ -14,6 +17,10 @@ class Registration_table(Base):
     year = Column(CHAR(4), nullable=False)
     semester = Column(CHAR(1), nullable=False)
     grade = Column(CHAR(2))
+
+    def __repr__(self):
+        return '<User(student_id = {}, subject_id = {}, year = {}, semester ={}, grade={})>'.format(self.student_id, \
+            self.subject_id, self.year , self.semester, self.grade)
     
 
 class Subject_table(Base):
@@ -41,8 +48,12 @@ class Teachers_table(Base):
 
 Base.metadata.create_all(engine)
 
+
 Session = sessionmaker(bind=engine)
 session = Session()
+
+SessionTest = sessionmaker(bind=engine1)
+sessionTest = SessionTest()
 
 Students_all_1 = Students_table(student_id="6406022620031", f_name="Chalongrath", l_name="Kodlord", e_mail="s6406022620031@email.kmutnb.ac.th")
 Students_all_2 = Students_table(student_id="6406022620037", f_name="Bunnapon", l_name="Takumwan", e_mail="s6406022620037@email.kmutnb.ac.th")
@@ -89,5 +100,7 @@ session.add(Registration_table_6)
 session.add(Registration_table_7)
 session.add(Registration_table_8)
 session.add(Registration_table_9)
+
+
 
 session.commit()
