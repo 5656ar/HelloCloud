@@ -9,14 +9,11 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:MDDnfo15110@10.104.7.84:11234/testdb'
 app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
-db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    result = session.query(Students_table.student_id,Students_table.f_name,Students_table.l_name,Registration_table.subject_id,Subject_table.subject_name,Registration_table.grade,Teachers_table.f_tname,Teachers_table.l_tname)\
-        .outerjoin(Registration_table,Students_table.student_id == Registration_table.student_id)\
-        .outerjoin(Subject_table,Registration_table.subject_id == Subject_table.subject_id).join(Teachers_table,Subject_table.teacher_id == Teachers_table.teacher_id).all()
-    # result += result1
+    result = session.query(Students_table.student_id,Students_table.f_name,Students_table.l_name).all()
+
     return render_template('index8.html', result=result)
 
 @app.route('/sign')
