@@ -38,7 +38,7 @@ class Teachers_table(Base):
     l_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50),nullable=False)
 
-
+Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
 
@@ -71,5 +71,28 @@ Registration_table_7 = Registration_table(student_id="6406022620011", subject_id
 Registration_table_8 = Registration_table(student_id="6406022620011", subject_id="060233113", year="2565", semester="2", grade="D")
 Registration_table_9 = Registration_table(student_id="6406022620011", subject_id="060233133", year="2565", semester="2", grade="F")
 
+session.add(Students_all_1)
+session.add(Students_all_2)
+session.add(Students_all_3)
 
+session.add(Teachers_table_1)
+session.add(Teachers_table_2)
+session.add(Teachers_table_3)
+
+session.add(Subject_table_1)
+session.add(Subject_table_2)
+session.add(Subject_table_3)
+
+session.add(Registration_table_1)
+session.add(Registration_table_2)
+session.add(Registration_table_3)
+session.add(Registration_table_4)
+session.add(Registration_table_5)
+session.add(Registration_table_6)
+session.add(Registration_table_7)
+session.add(Registration_table_8)
+session.add(Registration_table_9)
 session.commit()
+
+result = session.query(Students_table.f_name).all()
+print(result)
