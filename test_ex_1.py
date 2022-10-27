@@ -34,9 +34,9 @@ class Students_table(Base):
 class Teachers_table(Base):
     __tablename__ = "Teachers"
     teacher_id = Column(CHAR(3), primary_key=True, nullable=False)
-    f_name = Column(VARCHAR(30), nullable=False)
-    l_name = Column(VARCHAR(30), nullable=False)
-    e_mail = Column(VARCHAR(50),nullable=False)
+    f_tname = Column(VARCHAR(30), nullable=False)
+    l_tname = Column(VARCHAR(30), nullable=False)
+    e_tmail = Column(VARCHAR(50),nullable=False)
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
@@ -51,9 +51,9 @@ Students_all_1 = Students_table(student_id="6406022620031", f_name="Chalongrath"
 Students_all_2 = Students_table(student_id="6406022620037", f_name="Bunnapon", l_name="Takumwan", e_mail="s6406022620037@email.kmutnb.ac.th")
 Students_all_3 = Students_table(student_id="6406022620011", f_name="Jakapat", l_name="Jodduangchan", e_mail="s6406022620011@email.kmutnb.ac.th")
 
-Teachers_table_1 = Teachers_table(teacher_id="AMK",f_name="Anirach", l_name="Mingkhwan", e_mail="Anirach@email.kmutnb.ac.th")
-Teachers_table_2 = Teachers_table(teacher_id="WKN",f_name="Watcherachai", l_name="Kongsiriwattana", e_mail="Watcherachai@email.kmutnb.ac.th")
-Teachers_table_3 = Teachers_table(teacher_id="STS",f_name="Sarayoot", l_name="Tanessakulwattana", e_mail="Sarayoot@email.kmutnb.ac.th")
+Teachers_table_1 = Teachers_table(teacher_id="AMK",f_tname="Anirach", l_tname="Mingkhwan", e_tmail="Anirach@email.kmutnb.ac.th")
+Teachers_table_2 = Teachers_table(teacher_id="WKN",f_tname="Watcherachai", l_tname="Kongsiriwattana", e_tmail="Watcherachai@email.kmutnb.ac.th")
+Teachers_table_3 = Teachers_table(teacher_id="STS",f_tname="Sarayoot", l_tname="Tanessakulwattana", e_tmail="Sarayoot@email.kmutnb.ac.th")
 
 Subject_table_1 = Subject_table(subject_id="060233112", subject_name="DATA ENGINEERING", cradit="3", teacher_id="STS")
 Subject_table_2 = Subject_table(subject_id="060233113", subject_name="ADVANCED COMPUTER PROGRAMMIN", cradit="3", teacher_id="AMK")
