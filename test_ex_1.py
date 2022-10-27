@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import CHAR, VARCHAR, Column, Integer, ForeignKey
 from sqlalchemy.orm import sessionmaker
 
-engine = sqlalchemy.create_engine('postgresql://webadmin:MDDnfo15110@node38352-bunnapon.proen.app.ruk-com.cloud:11234/testdb')
+engine = sqlalchemy.create_engine('postgresql://webadmin:MDDnfo15110@node38352-bunnapon.proen.app.ruk-com.cloud:5432/testdb')
 Base = declarative_base()
 
 class Registration_table(Base):
