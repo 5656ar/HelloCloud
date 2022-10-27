@@ -6,8 +6,6 @@ from sqlalchemy.orm import sessionmaker
 
 engine = sqlalchemy.create_engine('postgresql://webadmin:MDDnfo15110@node38352-bunnapon.proen.app.ruk-com.cloud:11234/testdb')
 Base = declarative_base()
-db_uri = 'sqlite:///HW1.sqlite3'
-engine1 = create_engine(db_uri, echo=False)
 
 class Registration_table(Base):
     __tablename__ = 'Registration'
@@ -17,11 +15,6 @@ class Registration_table(Base):
     year = Column(CHAR(4), nullable=False)
     semester = Column(CHAR(1), nullable=False)
     grade = Column(CHAR(2))
-
-    def __repr__(self):
-        return '<User(student_id = {}, subject_id = {}, year = {}, semester ={}, grade={})>'.format(self.student_id, \
-            self.subject_id, self.year , self.semester, self.grade)
-    
 
 class Subject_table(Base):
     __tablename__ = "Subject"
@@ -52,8 +45,7 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-SessionTest = sessionmaker(bind=engine1)
-sessionTest = SessionTest()
+
 
 Students_all_1 = Students_table(student_id="6406022620031", f_name="Chalongrath", l_name="Kodlord", e_mail="s6406022620031@email.kmutnb.ac.th")
 Students_all_2 = Students_table(student_id="6406022620037", f_name="Bunnapon", l_name="Takumwan", e_mail="s6406022620037@email.kmutnb.ac.th")
@@ -78,29 +70,6 @@ Registration_table_6 = Registration_table(student_id="6406022620037", subject_id
 Registration_table_7 = Registration_table(student_id="6406022620011", subject_id="060233112", year="2565", semester="2", grade="D+")
 Registration_table_8 = Registration_table(student_id="6406022620011", subject_id="060233113", year="2565", semester="2", grade="D")
 Registration_table_9 = Registration_table(student_id="6406022620011", subject_id="060233133", year="2565", semester="2", grade="F")
-
-session.add(Students_all_1)
-session.add(Students_all_2)
-session.add(Students_all_3)
-
-session.add(Teachers_table_1)
-session.add(Teachers_table_2)
-session.add(Teachers_table_3)
-
-session.add(Subject_table_1)
-session.add(Subject_table_2)
-session.add(Subject_table_3)
-
-session.add(Registration_table_1)
-session.add(Registration_table_2)
-session.add(Registration_table_3)
-session.add(Registration_table_4)
-session.add(Registration_table_5)
-session.add(Registration_table_6)
-session.add(Registration_table_7)
-session.add(Registration_table_8)
-session.add(Registration_table_9)
-
 
 
 session.commit()
