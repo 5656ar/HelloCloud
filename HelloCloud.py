@@ -18,3 +18,5 @@ def home():
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0',port=80)
+
+# postgresql://webadmin:MDDnfo15110@10.104.7.84:5432/testdb
