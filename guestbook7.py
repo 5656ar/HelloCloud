@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Date, CHAR, VARCHAR
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:MDDnfo15110@10.104.7.84:5432/testdb'
 app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False

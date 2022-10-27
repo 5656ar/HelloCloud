@@ -15,19 +15,30 @@
 </head>
 <body>
     <div class="container theme-showcase" role="main">
-        <div class="jumbotron">
-            <h1>Guest Book</h1>
-            <a type="button" class="btn btn-link" href="{{ url_for('sign') }}">Sign the Guest Book</a>
-        </div>
-        
-        {% for r in result %}
         <div class="page-header">
-            <h1>{{ r.f_name }}</h1>
+            <Table>
+                <tr>
+                    <th>student-id</th>
+                    <th>student first name</th>
+                    <th>student last name</th>
+                    <th>subject id</th>
+                    <th>subject name</th>
+                    <th>teacher first name</th>
+                    <th>teacher last name</th>
+                </tr>
+                {% for r in result %}
+                <tr>
+                    <td>{{ r.student_id }}</td>
+                    <td>{{ r.f_name }}</td>
+                    <td>{{ r.l_name }}</td>
+                    <td>{{ r.subject_id }}</td>
+                    <td>{{ r.grade}}</td>
+                    <td>{{ r.f_tname}}</td>
+                    <td>{{ r.l_tname}}</td>
+                </tr>
+                {% endfor %}
+            </Table>
         </div>
-        <div class="well">
-            <p>{{ r.l_name}}</p>
-        </div>
-        {% endfor %}
     </div> <!--/container -->
 </body>
 </html>
