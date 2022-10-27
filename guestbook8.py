@@ -13,7 +13,7 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    result = session.query(Students_table).all()
+    result = session.query(Students_table.f_name,Students_table.l_name).all()
     # result += result1
     return render_template('index8.html', result=result)
 
