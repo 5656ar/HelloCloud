@@ -94,5 +94,5 @@ session.add(Registration_table_8)
 session.add(Registration_table_9)
 session.commit()
 
-result = session.query(Students_table.f_name).all()
-print(result)
+# result = session.query(Students_table.f_name).all()
+# print(result)
