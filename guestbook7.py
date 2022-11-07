@@ -6,7 +6,7 @@ from test_ex_1 import Registration_table, Students_table, Teachers_table, Subjec
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:MDDnfo15110@10.104.9.147:11234/testdb'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:MDDnfo15110@10.104.9.147:5432/testdb'
 app.config['SQLALCHEMY_TRACK_MPDIFICATION'] = False
 
 
